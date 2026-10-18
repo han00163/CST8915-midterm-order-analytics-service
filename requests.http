@@ -1,0 +1,24 @@
+### Broker/service health (503 when RabbitMQ is unavailable)
+GET http://localhost:4000/health
+
+### Consumed orders
+GET http://localhost:4000/orders
+
+### Summary
+GET http://localhost:4000/analytics/summary
+
+### Groups by product NAME
+GET http://localhost:4000/analytics/products
+
+### Top 3 by QUANTITY
+GET http://localhost:4000/analytics/top-products
+
+### Send through your EXISTING Node.js order-service, not the analytics API
+POST http://localhost:3000/orders
+Content-Type: application/json
+
+{
+  "product": { "id": 1, "name": "Dog Food", "price": 19.99 },
+  "quantity": 2,
+  "totalPrice": 39.98
+}
